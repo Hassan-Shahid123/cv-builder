@@ -29,7 +29,7 @@ function App() {
     description: "",
   });
 
-  const [state, setState] = useState("display");
+  const [state, setState] = useState("edit");
 
   function handleGeneralChange(e) {
     const { name, value } = e.target;
