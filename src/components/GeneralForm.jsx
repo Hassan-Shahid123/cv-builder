@@ -1,44 +1,35 @@
-import { useState } from "react";
+import "../styles/form.css";
 
-export default function GeneralForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  function handleChange(e) {
-    const el = e.target;
-    if (el.id === "name") {
-      setName(el.value);
-    }
-    if (el.id === "email") {
-      setEmail(el.value);
-    }
-    if (el.id === "phone") {
-      setPhone(el.value);
-    }
-  }
+export default function GeneralForm({ data, handleChange }) {
   return (
-    <form>
-      <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        id="name"
-        onChange={handleChange}
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        id="email"
-        onChange={handleChange}
-      />
-      <input
-        type="phone"
-        placeholder="Phone Number"
-        value={phone}
-        id="phone"
-        onChange={handleChange}
-      />
+    <form className="form">
+      <p className="form-heading">Personal Details</p>
+      <div className="input-container">
+        <input
+          type="text"
+          placeholder="Name"
+          value={data.name}
+          name="name"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={data.email}
+          name="email"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="tel"
+          placeholder="Phone Number"
+          value={data.phone}
+          name="phone"
+          onChange={handleChange}
+          required
+        />
+      </div>
     </form>
   );
 }
